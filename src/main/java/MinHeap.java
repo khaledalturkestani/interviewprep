@@ -17,16 +17,6 @@ public class MinHeap {
         arr = new int[initCapacity];
     }
 
-    /**
-     * Constructor to turn an array to MinHeap
-     *
-     * @return
-     */
-    public MinHeap(int[] arr) {
-
-    }
-
-
     public int getMin() {
         if (heapSize == 0)
             return Integer.MAX_VALUE;
@@ -34,26 +24,42 @@ public class MinHeap {
     }
 
     public int extractMin() {
-
+        if (heapSize == 0)
+            return Integer.MAX_VALUE;
+        int min = arr[0];
+        // Set Move the biggest value to root then heapify
+        arr[0] = arr[heapSize-1];
+        heapSize--;
+        heapify(0);
+        return min;
     }
 
     public void decreaseKey(int key, int new_val) {
 
     }
 
-    public void deleteKey(int key) {
+    public void deleteKey(int indx) {
+        if (indx >= heapSize)
+            return;
 
+        arr[indx] = arr[heapSize-1];
+        heapSize--;
+        heapify(indx);
     }
 
     public void insertKey(int key) {
 
     }
 
-    private int left(int idx) {
-        return idx * 2 + 1;
+    private void heapify(int indx) {
+
     }
 
-    private int right(int idx) {
-        return idx * 2 + 2;
+    private int left(int indx) {
+        return indx * 2 + 1;
+    }
+
+    private int right(int indx) {
+        return indx * 2 + 2;
     }
 }
