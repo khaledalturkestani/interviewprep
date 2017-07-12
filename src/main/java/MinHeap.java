@@ -27,9 +27,12 @@ public class MinHeap {
         if (heapSize == 0)
             return Integer.MAX_VALUE;
         int min = arr[0];
-        // Set Move the biggest value to root then heapify
-        arr[0] = arr[heapSize-1];
         heapSize--;
+        // Set Move the biggest value to root then heapify
+        if (heapSize == 0) {
+            return min;
+        }
+        arr[0] = arr[heapSize];
         heapify(0);
         return min;
     }
@@ -70,7 +73,7 @@ public class MinHeap {
         int indx = heapSize - 1;
         arr[indx] = key;
 
-        while (indx >= 0) {
+        while (indx > 0) {
             int parent = parent(indx);
             if (arr[parent] <= arr[indx]) {
                 break;
