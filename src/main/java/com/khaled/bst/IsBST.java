@@ -1,3 +1,5 @@
+package com.khaled.bst;
+
 /**
  * Created by khaledalturkestani on 7/14/17.
  */
@@ -30,11 +32,11 @@ public class IsBST {
         root.left.left  = new Node(1);
         root.left.right = new Node(3);
 
-        // Expected: "Is BST"
+        // Expected: "Is com.khaled.bst.BST"
         if(isBst(root))
-            System.out.println("Is BST");
+            System.out.println("Is com.khaled.bst.BST");
         else
-            System.out.println("Not a BST");
+            System.out.println("Not a com.khaled.bst.BST");
 
 
         //           4
@@ -48,11 +50,11 @@ public class IsBST {
         root1.left.left  = new Node(1);
         root1.left.right = new Node(2);
 
-        // Expected: "Is BST"
+        // Expected: "Is com.khaled.bst.BST"
         if(isBst(root1))
-            System.out.println("Is BST");
+            System.out.println("Is com.khaled.bst.BST");
         else
-            System.out.println("Not a BST");
+            System.out.println("Not a com.khaled.bst.BST");
 
     }
 }

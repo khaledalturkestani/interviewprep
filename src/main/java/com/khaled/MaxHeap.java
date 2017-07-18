@@ -1,3 +1,5 @@
+package com.khaled;
+
 /**
  * Created by khaledalturkestani on 7/12/17.
  */
@@ -19,7 +21,7 @@ public class MaxHeap {
 
     /**
       * @param key
-      * @return - Index of key in the MaxHeap array. -1 if array is full.
+      * @return - Index of key in the com.khaled.MaxHeap array. -1 if array is full.
       */
     public int insertKey(int key) {
         if (heapSize == arr.length)
@@ -53,7 +55,7 @@ public class MaxHeap {
 
     /**
      *
-     * @return - Max value in MaxHeap. MIN_VALUE if MaxHeap is empty.
+     * @return - Max value in com.khaled.MaxHeap. MIN_VALUE if com.khaled.MaxHeap is empty.
      */
     public int extractMax() {
         if (heapSize == 0)

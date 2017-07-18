@@ -1,3 +1,5 @@
+package com.khaled;
+
 /**
  * Largest sum of contiguous subarray problem.
  */

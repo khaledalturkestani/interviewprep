@@ -1,5 +1,9 @@
+package com.khaled.bst;
+
+import com.khaled.Node;
+
 /**
- * Lowest Common Ancestor in a BST.
+ * Lowest Common Ancestor in a com.khaled.bst.BST.
  */
 public class LCA {
 
@@ -38,17 +42,17 @@ public class LCA {
         int n1 = 10;
         int n2 = 14;
         Node t = lca(root, new Node(n1), new Node(n2));
-        System.out.println(String.format("LCA of %d and %d is %d \n", n1, n2, t.value));
+        System.out.println(String.format("com.khaled.bst.LCA of %d and %d is %d \n", n1, n2, t.value));
 
         n1 = 14;
         n2 = 8;
         t = lca(root, new Node(n1), new Node(n2));
-        System.out.println(String.format("LCA of %d and %d is %d \n", n1, n2, t.value));
+        System.out.println(String.format("com.khaled.bst.LCA of %d and %d is %d \n", n1, n2, t.value));
 
         n1 = 10;
         n2 = 22;
         t = lca(root, new Node(n1), new Node(n2));
-        System.out.println(String.format("LCA of %d and %d is %d \n", n1, n2, t.value));
+        System.out.println(String.format("com.khaled.bst.LCA of %d and %d is %d \n", n1, n2, t.value));
     }
 }
 

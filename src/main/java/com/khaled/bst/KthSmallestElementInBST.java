@@ -1,3 +1,5 @@
+package com.khaled.bst;
+
 public class KthSmallestElementInBST {
 
     public static class MutableInteger {

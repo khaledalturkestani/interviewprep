@@ -1,6 +1,8 @@
+package com.khaled.bst;
+
 /**
  * You need to find the inorder successor and predecessor of a given key.
- * In case the given key is not found in BST, then return the two values within which this key will lie.
+ * In case the given key is not found in com.khaled.bst.BST, then return the two values within which this key will lie.
  *
  * http://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/
  */

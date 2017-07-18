@@ -1,3 +1,5 @@
+package com.khaled.bst;
+
 /**
  * Created by khaledalturkestani on 7/18/17.
  */
@@ -12,7 +14,7 @@ public class BSTInorderSuccessor {
             return minNode(node.right);
         }
 
-        // Otherwise, it's the last predecessor up the BST for which the node lies on the LEFT branch
+        // Otherwise, it's the last predecessor up the com.khaled.bst.BST for which the node lies on the LEFT branch
         Node succ = null;
         while (root != null) {
             // We're going left --> update successor node

@@ -1,4 +1,4 @@
-import java.util.Comparator;
+package com.khaled.bst;
 
 /**
  * Created by khaledalturkestani on 7/13/17.

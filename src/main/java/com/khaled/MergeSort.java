@@ -1,3 +1,5 @@
+package com.khaled;
+
 public class MergeSort {
 
     public static void sort(int[] arr) {
