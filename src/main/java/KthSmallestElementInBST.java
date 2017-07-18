@@ -1,7 +1,4 @@
-/**
- * Created by khaledalturkestani on 7/18/17.
- */
-public class KthSmallestEementInBST {
+public class KthSmallestElementInBST {
 
     public static class MutableInteger {
         private int value;
@@ -16,7 +13,6 @@ public class KthSmallestEementInBST {
         }
     }
     private static Node kthSmallest(Node root, int k) {
-//        Integer c = new Integer(0);
         MutableInteger c = new MutableInteger(0);
         return kthSmallestUtil(root, k, c);
     }
@@ -25,14 +21,19 @@ public class KthSmallestEementInBST {
         if (root == null || c.getValue() >= k)
             return null;
 
-        Node node = kthSmallestUtil(root.left, k, c);
+        Node leftRec = kthSmallestUtil(root.left, k, c);
 
         c.incr();
 
         if (c.getValue() == k)
             return root;
 
-        return kthSmallestUtil(root.right, k, c);
+        Node rightRec = kthSmallestUtil(root.right, k, c);
+
+        if (rightRec != null)
+            return rightRec;
+
+        return leftRec;
     }
 
     public static void main(String[] args) {
@@ -64,10 +65,10 @@ public class KthSmallestEementInBST {
         System.out.println(String.format("Expected 2nd smallest value is %d. Got: %d", 8, answer.value));
 
         answer = kthSmallest(root, 3);
-        System.out.println(String.format("Expected 3rd smallest value is %d. Got: %d", 12, answer.value));
+        System.out.println(String.format("Expected 3rd smallest value is %d. Got: %d", 10, answer.value));
 
         answer = kthSmallest(root, 4);
-        System.out.println(String.format("Expected 4th smallest value is %d. Got: %d", 10, answer.value));
+        System.out.println(String.format("Expected 4th smallest value is %d. Got: %d", 12, answer.value));
 
     }
 }
