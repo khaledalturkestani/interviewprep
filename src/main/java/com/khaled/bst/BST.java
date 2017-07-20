@@ -175,6 +175,52 @@ public class BST<T> {
         inorderPrint(node.getRight());
     }
 
+    public BST preorderCopy() {
+        if (root == null)
+            return null;
+        BST<Integer> bst = new BST<Integer>();
+        preorderCopy(root, bst);
+        return bst;
+    }
+
+    private void preorderCopy(Node root, BST<Integer> bst) {
+        if (root == null)
+            return;
+
+        Node node = new Node(root.getValue());
+        bst.insert((Integer)node.getValue());
+        preorderCopy(root.getLeft(), bst);
+        preorderCopy(root.getRight(), bst);
+    }
+
+    public void preorderPrint() {
+        preorderPrint(root);
+        System.out.println("");
+    }
+
+    private void preorderPrint(Node node) {
+        if (node == null)
+            return;
+
+        System.out.print(node.getValue() + " ");
+        inorderPrint(node.getLeft());
+        inorderPrint(node.getRight());
+    }
+
+    public void postorderPrint() {
+        postorderPrint(root);
+        System.out.println("");
+    }
+
+    private void postorderPrint(Node node) {
+        if (node == null)
+            return;
+
+        inorderPrint(node.getLeft());
+        inorderPrint(node.getRight());
+        System.out.print(node.getValue() + " ");
+    }
+
     private Node min(Node node) {
         Node min = node;
         while (min.getLeft() != null) {
@@ -192,6 +238,16 @@ public class BST<T> {
         bst.insert(70);
         bst.insert(60);
         bst.insert(80);
+
+        System.out.println("Preorder traversal of the given tree \n");
+        bst.preorderPrint();
+
+        System.out.println("Preorder traversal of COPIED tree \n");
+        BST copiedBST = bst.preorderCopy();
+        copiedBST.preorderPrint();
+
+        System.out.println("Postorder traversal of the given tree \n");
+        bst.postorderPrint();
 
         System.out.println("Inorder traversal of the given tree \n");
         bst.inorderPrint();
