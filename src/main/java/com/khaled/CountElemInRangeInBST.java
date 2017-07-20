@@ -1,3 +1,7 @@
+package com.khaled;
+
+import com.khaled.bst.Node;
+
 /**
  * Count the number of elements in a given range between 'a' and 'b' in a BST.
  */

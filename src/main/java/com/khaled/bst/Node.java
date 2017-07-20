@@ -1,4 +1,4 @@
-package com.khaled;
+package com.khaled.bst;
 
 /**
  * Created by khaledalturkestani on 7/14/17.

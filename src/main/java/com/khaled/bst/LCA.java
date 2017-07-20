@@ -1,7 +1,5 @@
 package com.khaled.bst;
 
-import com.khaled.Node;
-
 /**
  * Lowest Common Ancestor in a com.khaled.bst.BST.
  */

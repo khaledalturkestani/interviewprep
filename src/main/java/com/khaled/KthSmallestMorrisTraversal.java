@@ -1,4 +1,6 @@
-import org.omg.PortableInterceptor.INACTIVE;
+package com.khaled;
+
+import com.khaled.bst.Node;
 
 /**
  * Morris Traversal: Inorder traversal of BST with O(1) extra space (no recursion)
