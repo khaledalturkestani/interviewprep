@@ -93,7 +93,7 @@ public class LRU<K, V> {
 
     public static void main(String args[]) {
         // Note: test by setting breakpoints and debugging nodes.
-        //       It's easier to debug by traversing the nodes starting from first and printing them out, but I'm too lazy rn. 
+        //       It's easier to debug by traversing the nodes starting from first and printing them out, but I'm too lazy rn.
         LRU<String, Integer> lru = new LRU<String, Integer>(5);
         lru.put("1",1);
         lru.put("2",2);
