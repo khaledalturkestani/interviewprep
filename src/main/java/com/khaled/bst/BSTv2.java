@@ -28,7 +28,7 @@ public class BSTv2<V extends Comparable> {
         }
 
         Node cur = root;
-        while (cur.left != null || cur.right != null) {
+        while (true) {
             if (node.val.compareTo(cur.val) == 0) {
                 return;
             }
@@ -75,24 +75,23 @@ public class BSTv2<V extends Comparable> {
         Node parent = null;
         Node cur = root;
         while (cur != null) {
-            while (cur != null) {
-                if (val.compareTo(cur.val) == 0) {
-                    break;
-                }
-                if (val.compareTo(cur.val) < 0) {
-                    parent = cur;
-                    cur = cur.left;
-                } else {
-                    parent = cur;
-                    cur = cur.right;
-                }
+            if (val.compareTo(cur.val) == 0) {
+                break;
+            }
+            if (val.compareTo(cur.val) < 0) {
+                parent = cur;
+                cur = cur.left;
+            } else {
+                parent = cur;
+                cur = cur.right;
             }
         }
+
         // Node not found
         if (cur == null)
             return null;
 
-        if (cur.left == null && cur.left == null)  {
+        if (cur.left == null && cur.right == null)  {
             if (parent != null) {
                 if (parent.left.val == cur.val) {
                     parent.left = null;
@@ -148,7 +147,7 @@ public class BSTv2<V extends Comparable> {
     }
 
     public static void main(String args[]) {
-        BST<Integer> bst = new BST<Integer>();
+        BSTv2<Integer> bst = new BSTv2<Integer>();
         bst.insert(50);
         bst.insert(30);
         bst.insert(20);
