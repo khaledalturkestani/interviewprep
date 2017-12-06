@@ -25,19 +25,39 @@ public class MinimumWindowSubstring {
         }
     }
 
+    private static void removeElement(Map<Character, Integer> map, char c) {
+        Integer count = map.get(c);
+        if (count != null) {
+            count -= 1;
+            if (count != 0) {
+                map.put(c, count);
+            } else {
+                map.remove(c);
+            }
+        }
+    }
+
+    private static void addElement(Map<Character, Integer> map, char c) {
+        Integer count = map.get(c);
+        if (count == null) {
+            count = 0;
+        }
+        map.put(c, count+1);
+    }
+
     public static String minWindow(String S, String T) {
         List<CharIndex> orderedSeen = new LinkedList<>();
-        Collection<Character> remaining = HashMultiset.create();
-        Collection<Character> seen = HashMultiset.create();
+        Map<Character, Integer> remaining = new HashMap<>();
+        Map<Character, Integer> seen = new HashMap<>();
         for (int i = 0; i < T.length(); i++)
-            remaining.add(T.charAt(i));
+            addElement(remaining, T.charAt(i));
         int curLen = 0;
         int start;
         for (start = 0; start < S.length(); start++){
-            if (remaining.contains(S.charAt(start))) {
-                remaining.remove(S.charAt(start));
+            if (remaining.containsKey(S.charAt(start))) {
+                removeElement(remaining, S.charAt(start));
                 Character c = new Character(S.charAt(start));
-                seen.add(c);
+                addElement(seen, c);
                 orderedSeen.add(new CharIndex(c, start));
                 break;
             }
@@ -45,12 +65,12 @@ public class MinimumWindowSubstring {
         int end;
         for (end = start+1; end < S.length(); end++) {
             char c = S.charAt(end);
-            if (remaining.contains(c)) {
-                seen.add(c);
+            if (remaining.containsKey(c)) {
+                addElement(seen, c);
                 orderedSeen.add(new CharIndex(c, end));
-                remaining.remove(c);
+                removeElement(remaining, c);
                 curLen = end - start;
-            } else if (seen.size() >= 2 && seen.contains(c) && c == S.charAt(start)) {
+            } else if (orderedSeen.size() >= 2 && seen.containsKey(c) && c == S.charAt(start)) {
                 int thisLen = end - orderedSeen.get(1).index;
                 if (thisLen < curLen) {
                     start = orderedSeen.get(1).index;
@@ -58,17 +78,19 @@ public class MinimumWindowSubstring {
                     orderedSeen.remove(0);
                     orderedSeen.add(new CharIndex(c, end));
                 }
+            } else if (orderedSeen.size() == 1 && orderedSeen.get(0).c == c) {
+                start = end;
             }
         }
 
-        if (curLen == 0)
+        if (orderedSeen.size() != T.length())
             return "";
         return S.substring(start, start+curLen+1);
     }
 
     public static void main(String[] args) {
-        String s = "acdvb";
-        String t = "z";
+        String s = "acbbaca";
+        String t = "aba";
         String minWindow = minWindow(s, t);
         System.out.println(minWindow);
     }
