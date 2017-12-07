@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * LeetCode: https://leetcode.com/problems/lru-cache/description/
- * 
+ *
  */
 public class LRUCache {
     class Node {
@@ -34,17 +34,7 @@ public class LRUCache {
             Node n = map.get(key);
             // Move to first of list & update first & last (if applicable)
             if (first != n) {
-                if (n.prev != null)
-                    n.prev.next = n.next;
-                if (n.next != null)
-                    n.next.prev = n.prev;
-                n.next = first;
-                if (first != null)
-                    first.prev = n;
-                first = n;
-                if (size > 1 && last == n)
-                    last = n.prev;
-                n.prev = null;
+                makeFirst(n);
             }
             return n.val;
         }
@@ -56,17 +46,7 @@ public class LRUCache {
             Node n = map.get(key);
             // Move to first of list & update first & last (if applicable)
             if (first != n) {
-                if (n.prev != null)
-                    n.prev.next = n.next;
-                if (n.next != null)
-                    n.next.prev = n.prev;
-                n.next = first;
-                if (first != null)
-                    first.prev = n;
-                first = n;
-                if (size > 1 && last == n)
-                    last = n.prev;
-                n.prev = null;
+                makeFirst(n);
             }
             n.val = val;
             return;
@@ -92,6 +72,20 @@ public class LRUCache {
         if (last == null)
             last = n;
         map.put(key, n);
+    }
+
+    private void makeFirst(Node n) {
+        if (n.prev != null)
+            n.prev.next = n.next;
+        if (n.next != null)
+            n.next.prev = n.prev;
+        n.next = first;
+        if (first != null)
+            first.prev = n;
+        first = n;
+        if (size > 1 && last == n)
+            last = n.prev;
+        n.prev = null;
     }
 
     public static void main(String[] args) {
