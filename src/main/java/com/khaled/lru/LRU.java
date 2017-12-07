@@ -1,4 +1,4 @@
-package com.khaled;
+package com.khaled.lru;
 
 import java.util.HashMap;
 import java.util.Map;
