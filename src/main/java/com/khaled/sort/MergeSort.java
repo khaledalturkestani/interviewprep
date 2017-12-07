@@ -1,4 +1,4 @@
-package com.khaled;
+package com.khaled.sort;
 
 public class MergeSort {
 

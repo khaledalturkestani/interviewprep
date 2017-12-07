@@ -1,4 +1,4 @@
-package com.khaled;
+package com.khaled.sort;
 
 /**
  * Created by Khaled.AlTurkestani on 7/7/2017.

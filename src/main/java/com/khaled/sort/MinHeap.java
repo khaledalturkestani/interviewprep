@@ -1,4 +1,4 @@
-package com.khaled;
+package com.khaled.sort;
 
 /**
  * Created by khaledalturkestani on 7/11/17.
@@ -9,7 +9,7 @@ public class MinHeap {
     int heapSize = 0;
 
     /**
-     * Constructor for an empty com.khaled.MinHeap
+     * Constructor for an empty com.khaled.sort.MinHeap
      *
      * @param initCapacity
      */
@@ -62,7 +62,7 @@ public class MinHeap {
     }
 
     /**
-     * Returns index of key in the com.khaled.MinHeap array.
+     * Returns index of key in the com.khaled.sort.MinHeap array.
      *
      * @param key
      * @return

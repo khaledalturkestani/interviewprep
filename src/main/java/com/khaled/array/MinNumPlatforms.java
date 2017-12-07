@@ -1,6 +1,6 @@
 package com.khaled.array;
 
-import com.khaled.QuickSort;
+import com.khaled.sort.QuickSort;
 
 import java.util.Stack;
 
